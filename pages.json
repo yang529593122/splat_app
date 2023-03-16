@@ -1,0 +1,254 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		// {
+		// 	"path": "pages/index/index",
+		// 	"style": {
+		// 		"navigationBarTitleText": "引导页",
+		// 		"navigationStyle": "custom"
+		// 	}
+		// },
+
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}
+
+		, {
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/message/message",
+			"style": {
+				"navigationBarTitleText": "消息",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/schedule/schedule",
+			"style": {
+				"navigationBarTitleText": "日程",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/release/release",
+			"style": {
+				"navigationBarTitleText": "发布",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/details/details",
+			"style": {
+				"navigationBarTitleText": "详情",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/agreement/agreement",
+			"style": {
+				"navigationBarTitleText": "注册协议",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/privacy/privacy",
+			"style": {
+				"navigationBarTitleText": "隐私政策",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/release_more/release_more",
+			"style": {
+				"navigationBarTitleText": "查看更多",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/legal_declaration/legal_declaration",
+			"style": {
+				"navigationBarTitleText": "法律声明",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/function_introduction/function_introduction",
+			"style": {
+				"navigationBarTitleText": "功能介绍",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/share_app/share_app",
+			"style": {
+				"navigationBarTitleText": "分享app",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/contact_us/contact_us",
+			"style": {
+				"navigationBarTitleText": "联系我们",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+
+			}
+
+		}, {
+			"path": "pages/learning_level/learning_level",
+			"style": {
+				"navigationBarTitleText": "学习级别",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/learning_record/learning_record",
+			"style": {
+				"navigationBarTitleText": "学习记录",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/membership_level/membership_level",
+			"style": {
+				"navigationBarTitleText": "会员等级",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/membership_record/membership_record",
+			"style": {
+				"navigationBarTitleText": "会员记录",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/follower/follower",
+			"style": {
+				"navigationBarTitleText": "关注的人",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/my_collection/my_collection",
+			"style": {
+				"navigationBarTitleText": "我的收藏",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/my_data/my_data",
+			"style": {
+				"navigationBarTitleText": "我的资料",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/teacher_index/teacher_index",
+			"style": {
+				"navigationBarTitleText": "老师主页",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "搜索页面",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/search_result/search_result",
+			"style": {
+				"navigationBarTitleText": " 搜索结果",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/select_class/select_class",
+			"style": {
+				"navigationBarTitleText": "选择场地",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},
+	"tabBar": {
+		"backgroundColor": "#fff",
+		"color": "#95ABBA",
+		"selectedColor": "#3E87B6",
+		"list": [{
+			"pagePath": "pages/home/home",
+			"text": "首页",
+			"iconPath": "/static/tabar/home.png",
+			"selectedIconPath": "/static/tabar/home_act.png"
+		}, {
+			"pagePath": "pages/schedule/schedule",
+			"text": "日程",
+			"iconPath": "/static/tabar/rc.png",
+			"selectedIconPath": "/static/tabar/rc_act.png"
+		}, {
+			"pagePath": "pages/message/message",
+			"text": "消息",
+			"iconPath": "/static/tabar/xx.png",
+			"selectedIconPath": "/static/tabar/xx_act.png"
+		}, {
+			"pagePath": "pages/my/my",
+			"text": "我的",
+			"iconPath": "/static/tabar/my.png",
+			"selectedIconPath": "/static/tabar/my_act.png"
+		}],
+		"midButton": {
+			"width": "64px",
+			"height": "40px",
+			"text": "",
+			"iconPath": "/static/tabar/add.png",
+			"iconWidth": "32px",
+			"backgroundImage": ""
+		}
+	}
+}
