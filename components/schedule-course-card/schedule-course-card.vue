@@ -1,41 +1,51 @@
 <template>
 	<view class="course-card">
-		<view class="course-card-status">
-			等待上课
+		<view class="course-card-status" v-if="data.status === 1">
+			待上课
+		</view>
+		<view class="course-card-status" style="color: #4485B3;"  v-if="data.status === 2">
+			已完成
 		</view>
 		<view class="course-card-top">
 			<view class="course-card-top-img">
-				<image src="../../static/logo.png" mode=""></image>
+				<image :src="data.thumb[0]" mode=""></image>
 			</view>
 			<view class="course-card-top-content">
 				<view class="title">
-					可是几乎都看过
+					{{ data.course_name }}
 				</view>
 				<view class="text">
-					可是几乎都看过
+					报名人数：{{ data.num }}/{{ data.enroll }}
 				</view>
 				<view class="text">
-					可是几乎都看过
+					授课时间：{{ data.lesson_time }}-{{ data.end_time.split(" ")[1] }}
 				</view>
 				<view class="user">
 					<view class="user-info">
-						<image src="../../static/logo.png" mode=""></image>
-						张三
+						<image :src="data.head_img" mode=""></image>
+						{{ data.user_name }}
 					</view>
-					<view class="btn">
+				<!-- 	<view class="btn" v-if="data.status === 1">
 						立即报名
+					</view> -->
+					<view class="btn" v-if="data.status === 1" style="background: #E7E6C0;color: #FCA43A;" @click="cancelRegistration(data)">
+						取消报名
 					</view>
 				</view>
 			</view>
 		</view>
 		<view class="course-card-bottom">
-			喝口水就会分开就好
+			{{ data.location }}  |  {{ data.room_type === 1 ? '小教室' : '大教室' }} 
 		</view>
 	</view>
 </template>
 
-<script>
-	
+<script setup>
+	const props = defineProps(['data'])
+	const emits = defineEmits(['cancel'])
+	const cancelRegistration = (item) => {
+		emits('cancel',item)
+	}
 </script>
 
 <style lang="scss" scoped>
@@ -57,8 +67,12 @@
 	.course-card-top{
 		display: flex;
 		.course-card-top-img{
-			width: 180rpx;
-			height: 180rpx;
+			width: 160rpx;
+			height: 204rpx;
+			padding: 20rpx;
+			background: #fff;
+			border-radius: 20rpx;
+			box-sizing: border-box;
 		}
 		.course-card-top-content{
 			flex: 1;
@@ -81,8 +95,8 @@
 					
 					image{
 						display: block;
-						width: 60rpx;
-						height: 60rpx;
+						width: 48rpx;
+						height: 48rpx;
 						border-radius: 50%;
 						margin-right: 20rpx;
 					}
@@ -100,10 +114,11 @@
 		}
 	}
 	.course-card-bottom{
-		border-top: 1rpx solid red;
+		border-top: 1rpx solid #D6E9EF;
 		line-height: 70rpx;
 		height: 70rpx;
 		font-size: 26rpx;
+		color: #666666;
 	}
 }
 </style>

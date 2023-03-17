@@ -93,4 +93,14 @@ export const autoLearnareaGetLearnarea =  (params) => {
   return  request(`/api/m2867/63fecea5ed998`, 'POST',params)
 }
 
+// 日程  学生日程
+export const autoEnrolllogGetRichengList =  (params) => {
+  return  request(`/api/m2867/64014bc434eb1`, 'POST',params)
+}
+// 日程  老师日程
+export const autoCourseGetTeacherRicheng =  (params) => {
+  return  request(`/api/m2867/6406a73383eae`, 'POST',params)
+}	
+	
+
 
