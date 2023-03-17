@@ -136,7 +136,8 @@
 			"path": "pages/learning_record/learning_record",
 			"style": {
 				"navigationBarTitleText": "学习记录",
-				"enablePullDownRefresh": false
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
 			}
 
 		}, {
