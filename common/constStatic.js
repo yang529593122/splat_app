@@ -100,3 +100,39 @@ export const LEARN_TIME = [
 
 export const HOURS_AFTER_TEXT = '在开课3小时之内取消课程了，则不返还次数，确认取消课程吗？'
 export const HOURS_BEFORE_TEXT = '在开课3小时之前取消课程了，则返还次数，是在课程预约的时间过了之后才返还这个次数，确认取消课程吗？'
+
+export const LEARNING_RECORD_NAV_DATA = [
+	{
+		id:0,
+		name:'全部',
+		status:0,  // 类型（0全部1待上课2已完成）
+	},
+	{
+		id:1,
+		name:'待上课',
+		status:1,  // 类型（0全部1待上课2已完成）
+	},
+	{
+		id:2,
+		name:'已完成',
+		status:2,  // 类型（0全部1待上课2已完成）
+	}
+]
+
+export const MEMBERSHIP_RECORD_NAV_DATA = [
+	{
+		id:0,
+		name:'全部',
+		status:0,  // 类型（0全部1待上课2已完成）
+	},
+	{
+		id:1,
+		name:'待上课',
+		status:1,  // 类型（0全部1待上课2已完成）
+	},
+	{
+		id:2,
+		name:'已完成',
+		status:2,  // 类型（0全部1待上课2已完成）
+	}
+]

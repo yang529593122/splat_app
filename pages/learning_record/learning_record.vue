@@ -9,14 +9,14 @@
 			</template>
 			<template v-slot:ctx>
 				<view class="nav">
-					<list-navs @change='onChangeFn'></list-navs>
+					<list-navs @change='onChangeFn' :list="LEARNING_RECORD_NAV_DATA"></list-navs>
 				</view>
 			</template>
 		</header-custom-content>
 	
 		<!-- 课程表 -->
 		<view class="course-box">
-			<view class="course-box-list"><course-card :list="courseList" /></view>
+			<view class="course-box-list"><learning-member-card :list="list"  @delete='deleteItem' /></view>
 		</view>
 
 	</view>
@@ -24,48 +24,45 @@
 
 <script setup>
 import { onReachBottom, onLoad } from '@dcloudio/uni-app';
-import { getCourse } from '@/common/request/api.js';
+import { autoEnrolllogGetStudyLog,autoEnrolllogDelEnrolllog } from '@/common/request/api.js';
 import { SUCCESS_CODE } from '@/common/request/httpStatus.js';
+import { LEARNING_RECORD_NAV_DATA } from "@/common/constStatic.js"
 import { reactive, ref } from 'vue';
-
 const paddingTop = getApp().globalData.statusBarHeight + 100;
+
 
 onLoad(() => {
 	// 初始化
-	init();
+	init(pageDatas);
 });
+
 const pageDatas = reactive({
-	curPage: 1,
-	totalPages: 1,
-	list_rows: 5
+	page: 1,
+	list_rows: 5,
+	type:0
 });
+const last_page = ref(1)
+
 onReachBottom(() => {
-	if (pageDatas.curPage < pageDatas.totalPages) {
-		pageDatas.curPage++;
-		course({
-			page: pageDatas.curPage,
-			list_rows: pageDatas.list_rows
-		});
+	if (pageDatas.page < last_page.value) {
+		pageDatas.page++;
+		autoEnrolllogGetStudyLogData(pageDatas);
 	}
 });
 
-const init = () => {
-
-	course({
-		page: pageDatas.curPage,
-		list_rows: pageDatas.list_rows
-	});
+const init = (params) => {
+	autoEnrolllogGetStudyLogData(params);
 };
 
 
 
 // 获取课程
-const courseList = ref([]);
-const course = async params => {
-	const data = await getCourse(params);
+const list = ref([]);
+const autoEnrolllogGetStudyLogData = async params => {
+	const data = await autoEnrolllogGetStudyLog(params);
 	if (data.code === SUCCESS_CODE) {
-		courseList.value = [...courseList.value, ...data.data.data];
-		pageDatas.totalPages = data.data.last_page;
+		list.value = [...list.value, ...data.data.data];
+		last_page.value = data.data.last_page;
 	}
 };
 
@@ -76,7 +73,23 @@ const goDetails = (item) => {
 }
 
 const onChangeFn = (item) => {
-	console.log(item,999)
+	pageDatas.page = 1
+	pageDatas.type = item.status
+	list.value = []
+	autoEnrolllogGetStudyLogData(pageDatas)
+}
+
+// 删除记录
+const deleteItem = async ({ data,index }) => {
+	const result = await autoEnrolllogDelEnrolllog({
+		course_id:data.course_id
+	});
+	if (result.code === SUCCESS_CODE) {
+		pageDatas.page = 1
+		list.value = []
+		autoEnrolllogGetStudyLogData(pageDatas)
+	}
+	
 }
 </script>
 

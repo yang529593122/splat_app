@@ -1,11 +1,15 @@
 <template>
-	<view class="list-nav">
-		<view class="list-nav-item" v-for="(item,index) in 4" :key="index" @click="selectItem(item,index)">
-			<view class="text" :class="{
-				textActived: itemIndex === index
-			}">
-				全部
-				<view class="actived" v-if="itemIndex === index"></view>
+	<view class="list" :class="{
+		isBorder:is_hy
+	}">
+		<view class="item" v-for="(item,index) in list" :key="index" @click="selectItem(item,index)">
+			<view class="title" :class="{
+				textActived: itemIndex === index,
+				isBg:iconBg && itemIndex === index
+				
+			}" >
+				{{ item.name }}
+				<view class="actived"  :style="{ 'background': iconBg }" v-if="itemIndex === index"></view>
 			</view>
 		</view>
 	</view>
@@ -13,6 +17,7 @@
 
 <script setup>
 import { ref } from "vue";
+ defineProps(['list','is_hy','iconBg'])
 const emits = defineEmits(['change'])
 	const itemIndex = ref(0)
 	const selectItem = (item,index) => {
@@ -22,16 +27,22 @@ const emits = defineEmits(['change'])
 </script>
 
 <style lang="scss" scoped>
-.list-nav{
+.list{
 	display: flex;
 	justify-content: space-around;
 	border-bottom: 1rpx solid #C5E8E7;
-	.text{
+	&.isBorder{
+		border-bottom:none;
+	}
+	.title{
 		position: relative;
 		padding: 30rpx 0;
 		color: #666666;
 		&.textActived{
 			color: #2C3034;
+		}
+		&.isBg{
+			color: #fff;
 		}
 		.actived{
 			position: absolute;

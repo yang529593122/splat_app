@@ -7,6 +7,6 @@
 
 export const BASE_URL = "https://yufabu.saizhuge.net"
 
-export const BASE_URL_TEST = "https://erp.hntxrj.com"
+// export const BASE_URL_TEST = "https://erp.hntxrj.com"
 
 export const IMG_UPLOAD_URL = "/api/m2867/62ddf0e4eadde"
